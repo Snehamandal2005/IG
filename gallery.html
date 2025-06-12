@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="gallery-container">
+    <h1 id="gallery-title"></h1>
+    <p id="gallery-description"></p>
+    <div id="image-grid"></div>
+  </div>
+
+  <script>
+    const data = JSON.parse(sessionStorage.getItem("galleryData"));
+
+    if (data) {
+      document.getElementById("gallery-title").textContent = data.title;
+      document.getElementById("gallery-description").textContent = data.description;
+      document.body.className = data.theme;
+
+      const grid = document.getElementById("image-grid");
+      data.images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.className = "gallery-image";
+        img.alt = "Gallery image";
+        grid.appendChild(img);
+      });
+    } else {
+      document.body.innerHTML = "<h2 style='text-align:center;'>No gallery data found. Go back and create one.</h2>";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="light">
+
+  <div id="gallery-container">
+    <h1>Create Your Image Gallery</h1>
+    <p>Fill in the details and upload your images.</p>
+
+    <form onsubmit="generateGallery(); return false;" id="upload-form">
+      
+      <div class="form-group">
+        <label for="title">Gallery Title:</label>
+        <input type="text" id="title" placeholder="Enter gallery title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Gallery Description:</label>
+        <textarea id="description" placeholder="Write a short description..." rows="4" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="theme">Choose Theme:</label>
+        <select id="theme" required>
+          <option value="">-- Select Theme --</option>
+          <option value="nature">Nature</option>
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+          <option value="ocean">Ocean</option>
+          <option value="sunset">Sunset</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="images">Upload Images:</label>
+        <input type="file" id="images" multiple accept="image/*" required />
+      </div>
+
+      <button type="submit">Generate Gallery</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
